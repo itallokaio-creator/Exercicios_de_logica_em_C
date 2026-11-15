@@ -1,0 +1,66 @@
+#include<stdio.h>
+#include<windows.h>
+#include<time.h>
+#include<stdlib.h>
+int main(){
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+/*6 - Desenvolva um jogo de advinhação onde o programa gera um número aleatório entre 1 e 10, e o usuário deve tentar
+adivinhar qual é o número. O programa deve informar se o número fornecido pelo usuário é maior ou menor do
+que o número gerado, até que ele acerte.*/
+    int min=1,max=10,numero_sorteado,op,subop,tentativa;
+    srand(time(NULL));
+
+        printf("\n<>--------------------JOGO DA ADVINHAÇÃO--------------------<>");
+        printf("\n\nA proposta desse jogo é basicamente advinhar o número de 1 a\n10, a cada erro será dado uma pista do número correto.");
+    do{
+        printf("\n\nSelecione \n\n(1) COMEÇAR JOGO\n(2) COMO JOGAR ?\n(3) SAIR\n\n=");
+        scanf("%d",&op);
+        switch(op){
+            case 1:
+                numero_sorteado=min + (rand() % (max-min +1));
+                do{
+                    printf("\n<>---------------------------------------------------------<>");
+                    printf("\n\nSeu palpite: ");
+                    scanf("%d",&tentativa);
+                        if(tentativa==numero_sorteado){
+                            printf("\nPARABÉNS !!!!\n\nNúmero correto! =)\n");
+                            printf("\n<>--------------------JOGO DA ADVINHAÇÃO--------------------<>");
+                            printf("\n\nA proposta desse jogo é basicamente advinhar o número de 1 a\n10, a cada erro será dado uma pista do número correto.");
+                        }else if(tentativa>numero_sorteado){
+                            printf("\nQUASE LÁ\n\nO número correto é menor que %d",tentativa);
+                        }else{
+                            printf("\nQUASE LÁ\n\nNúmero correto é maior que %d",tentativa);
+                        }
+                }while(tentativa!=numero_sorteado);
+                break;
+            case 2:
+            
+                printf("\n\n<>--------------------COMO JOGAR--------------------<>");
+                printf("\n\nEste é um jogo de advinhar o número gerado pelo sistema,\no jogador deverá dar palpites e conforme a escolha for\nerrada será apresentado dicas como (O numero correto está\nacima do palpitado) ou (O numero correto\nestá abaixo do palpitado).");
+                do{
+                    printf("\n\nDIGITE \n\n(1) RETORNAR AO MENU PRINCIPAL\n\n= ");
+                    scanf("%d",&subop);
+                        switch(subop){
+                                case 1:
+                                    printf("\n<>--------------------JOGO DA ADVINHAÇÃO--------------------<>");
+                                    printf("\n\nA proposta desse jogo é basicamente advinhar o número de 1 a\n10, a cada erro será dado uma pista do número correto.");
+                                break;
+                                default:
+                                    printf("\nOpção inválida, tente novamente...\n");
+                                    printf("\n\n<>---------------------------------------------------------<>");
+                                break;
+                            }
+                }while(subop!=1);
+                break;
+            case 3:
+                printf("\n\nSAINDO...");
+                break;
+            default:
+            printf("\nOpção inválida, Tente novamente!");
+            break;
+        }
+    }while(op!=3);
+    printf("\n\n<>---------------------------------------------------------<>");
+    return 0;
+}
