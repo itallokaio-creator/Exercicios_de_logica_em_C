@@ -134,9 +134,9 @@ int main(){
 							}else{
 								printf("\n\nTransferencia realizada com sucesso");
 								printf("\n------------------------------------------------------------");
-							}
 							saldoContaA=saldoContaA-transferido;
 							saldoContaB=saldoContaB-transferido;
+							}
 						break;
 						default:
 							printf("\nOperacao invalida\n");
@@ -160,9 +160,9 @@ int main(){
 							}else{
 								printf("\n\nTransferencia realizada com sucesso");
 								printf("\n------------------------------------------------------------");
-							}
-							saldoContaA=saldoContaA+transferido;
+							saldoContaA=saldoContaA-transferido;
 							saldoContaB=saldoContaB-transferido;
+							}
 						break;
 						default:
 							printf("\nOperacao invalida\n");
