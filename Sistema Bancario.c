@@ -44,7 +44,7 @@ int main(){
 							printf("\n\nOperacao invalida.\n");
 							printf("\n------------------------------------------------------------");			
 						}else{
-							saldoContaA=saldoContaA+entrada;
+							saldoContaA=saldoContaB+entrada;
 							printf("\nR$ %.2f depositados com sucesso.\n",entrada);
 							printf("\n------------------------------------------------------------");
 						}
@@ -101,7 +101,7 @@ int main(){
 							printf("\nSaldo insuficiente.\n");
 							printf("\n------------------------------------------------------------");
 						}else{
-							saldoContaA=saldoContaB-saida;
+							saldoContaB=saldoContaB-saida;
 							printf("\nR$ %.2f Sacado com sucesso.\n",saida);
 							printf("\n------------------------------------------------------------");
 						} 
@@ -132,10 +132,10 @@ int main(){
 								printf("\nOperacao invalida");
 								printf("\n------------------------------------------------------------");
 							}else{
+							saldoContaA=saldoContaA-transferido;
+							saldoContaB=saldoContaB+transferido;
 								printf("\n\nTransferencia realizada com sucesso");
 								printf("\n------------------------------------------------------------");
-							saldoContaA=saldoContaA-transferido;
-							saldoContaB=saldoContaB-transferido;
 							}
 						break;
 						default:
@@ -151,17 +151,17 @@ int main(){
 						case 1:
 							printf("\nValor a ser transferido: R$ ");
 							scanf("%f",&transferido);
-							if(transferido>saldoContaA){
+							if(transferido>saldoContaB){
 								printf("\nSaldo insuficiente");
 								printf("\n------------------------------------------------------------");
 							}else if(transferido<=0){
 								printf("\nOperacao invalida");
 								printf("\n------------------------------------------------------------");
 							}else{
+								saldoContaB=saldoContaB-transferido;
+								saldoContaA=saldoContaA+transferido;
 								printf("\n\nTransferencia realizada com sucesso");
 								printf("\n------------------------------------------------------------");
-							saldoContaA=saldoContaA-transferido;
-							saldoContaB=saldoContaB-transferido;
 							}
 						break;
 						default:
